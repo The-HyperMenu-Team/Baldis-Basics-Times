@@ -213,6 +213,10 @@ namespace BBTimes
 			sceneObjectClone.manager = newManager;
 			MainGameManagerPatches.secretEndingObj = sceneObjectClone;
 
+			//var scene = GenericExtensions.FindResourceObjects<SceneObject>().First(x => x.levelTitle == "F1");
+			//scene.nextLevel = sceneObjectClone;
+			//scene.levelObject.finalLevel = true;
+
 			// ********************************************************** Christmas Baldi Setup ***************************************************************************
 
 			if (BooleanStorage.IsChristmas)
@@ -356,6 +360,11 @@ namespace BBTimes
 
 				if (floorName == "F1")
 				{
+					//var builder = Resources.FindObjectsOfTypeAll<RotoHallBuilder>()[0];
+					//for (int i = 0; i < 5; i++)
+					//	ld.forcedSpecialHallBuilders = ld.forcedSpecialHallBuilders.AddToArray(builder);
+
+					//sco.additionalNPCs += 2;
 					ld.additionTurnChance += 10;
 					ld.bridgeTurnChance += 4;
 					ld.outerEdgeBuffer += 1;
@@ -380,6 +389,7 @@ namespace BBTimes
 					ld.deadEndBuffer = 4;
 					ld.minSpecialRooms = 1;
 					ld.maxSpecialRooms = 2;
+					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 5;
 					ld.bridgeTurnChance += 3;
 					ld.outerEdgeBuffer += 3;
@@ -411,6 +421,7 @@ namespace BBTimes
 				{
 					ld.minSpecialRooms += 1;
 					ld.maxSpecialRooms += 2;
+					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 15;
 					ld.bridgeTurnChance += 6;
 					ld.extraDoorChance = 0.5f;
@@ -444,6 +455,7 @@ namespace BBTimes
 					ld.minSpecialRooms = 1;
 					ld.maxSpecialRooms = 2;
 					ld.deadEndBuffer = 3;
+					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 25;
 					ld.bridgeTurnChance += 6;
 					ld.outerEdgeBuffer += 3;
@@ -481,7 +493,10 @@ namespace BBTimes
 
 				var floordata = BBTimesManager.floorDatas.FirstOrDefault(x => x.Floor == floorName);
 				if (floordata == null)
+				{
+					//Debug.LogWarning("Failed to get floor data for level: " + ld.name);
 					return;
+				}
 
 				bool isChristmas = BooleanStorage.IsChristmas;
 
