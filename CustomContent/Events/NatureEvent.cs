@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using BBTimes.CustomComponents;
 using BBTimes.Extensions;
@@ -116,7 +116,8 @@ namespace BBTimes.CustomContent.Events
 		}
 		const float plantsPixPerUnit = 15f;
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 		public override void Begin()

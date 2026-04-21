@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using MTM101BaldAPI.Registers;
 using BBTimes.CustomComponents;
@@ -50,7 +50,8 @@ namespace BBTimes.CustomContent.Events
 			audTrembling = this.GetSoundNoSub("earthQuakeGoing.wav", SoundType.Effect);
 		}
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 

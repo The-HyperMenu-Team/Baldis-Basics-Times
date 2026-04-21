@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomComponents;
+using BBTimes.CustomComponents;
 using BBTimes.Extensions;
 using BBTimes.Extensions.ObjectCreationExtensions;
 using System.Collections.Generic;
@@ -42,7 +42,10 @@ namespace BBTimes.CustomContent.NPCs
 		public string TexturePath => this.GenerateDataPath("npcs", "Textures");
 		public string SoundPath => this.GenerateDataPath("npcs", "Audios");
 		public NPC Npc { get; set; }
-		[SerializeField] Character[] replacementNPCs; public Character[] GetReplacementNPCs() => replacementNPCs; public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
+		[SerializeField]
+		Character[] replacementNPCs;
+		public Character[] GetReplacementNPCs() => replacementNPCs;
+		public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
 		public int ReplacementWeight { get; set; }
 		// --------------------------------------------------
 
@@ -115,25 +118,21 @@ namespace BBTimes.CustomContent.NPCs
 			var rooms = new List<RoomController>(ec.rooms);
 			if (rooms.Count > 1)
 				rooms.Remove(excludingRoom);
-			if (rooms.Count == 0)
-				goto justInCase;
-			
-			List<Cell> spots = [];
-			while (spots.Count == 0)
-			{
-				if (rooms.Count == 0)
-					goto justInCase;
 
+			List<Cell> spots = [];
+			while (rooms.Count > 0 && spots.Count == 0)
+			{
 				int i = Random.Range(0, rooms.Count);
 				spots = rooms[i].AllEntitySafeCellsNoGarbage();
 				rooms.RemoveAt(i);
 			}
 
-			return spots[Random.Range(0, spots.Count)];
+			if (spots.Count > 0)
+				return spots[Random.Range(0, spots.Count)];
 
-			justInCase:
+			// Fall back to the main hall if no valid spots were found in any room
 			var noGarb = ec.mainHall.AllTilesNoGarbage(false, false);
-			return noGarb[Random.Range(0, noGarb.Count)]; // Just in case
+			return noGarb[Random.Range(0, noGarb.Count)];
 		}
 
 		bool sleeping = false;

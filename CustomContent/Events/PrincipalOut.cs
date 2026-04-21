@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using UnityEngine;
 using PixelInternalAPI.Extensions;
 using MTM101BaldAPI.Components;
@@ -19,7 +19,8 @@ namespace BBTimes.CustomContent.Events
 				];
 		}
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 		public override void Begin()

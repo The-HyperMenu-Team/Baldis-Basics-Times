@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomComponents;
+using BBTimes.CustomComponents;
 using BBTimes.CustomComponents.EventSpecificComponents;
 using MTM101BaldAPI.Registers;
 using PixelInternalAPI.Extensions;
@@ -42,7 +42,8 @@ namespace BBTimes.CustomContent.Events
 			superFanPre = superFan;
 		}
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 

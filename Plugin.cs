@@ -213,10 +213,6 @@ namespace BBTimes
 			sceneObjectClone.manager = newManager;
 			MainGameManagerPatches.secretEndingObj = sceneObjectClone;
 
-			//var scene = GenericExtensions.FindResourceObjects<SceneObject>().First(x => x.levelTitle == "F1");
-			//scene.nextLevel = sceneObjectClone;
-			//scene.levelObject.finalLevel = true;
-
 			// ********************************************************** Christmas Baldi Setup ***************************************************************************
 
 			if (BooleanStorage.IsChristmas)
@@ -360,11 +356,6 @@ namespace BBTimes
 
 				if (floorName == "F1")
 				{
-					//var builder = Resources.FindObjectsOfTypeAll<RotoHallBuilder>()[0];
-					//for (int i = 0; i < 5; i++)
-					//	ld.forcedSpecialHallBuilders = ld.forcedSpecialHallBuilders.AddToArray(builder);
-
-					//sco.additionalNPCs += 2;
 					ld.additionTurnChance += 10;
 					ld.bridgeTurnChance += 4;
 					ld.outerEdgeBuffer += 1;
@@ -389,7 +380,6 @@ namespace BBTimes
 					ld.deadEndBuffer = 4;
 					ld.minSpecialRooms = 1;
 					ld.maxSpecialRooms = 2;
-					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 5;
 					ld.bridgeTurnChance += 3;
 					ld.outerEdgeBuffer += 3;
@@ -421,7 +411,6 @@ namespace BBTimes
 				{
 					ld.minSpecialRooms += 1;
 					ld.maxSpecialRooms += 2;
-					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 15;
 					ld.bridgeTurnChance += 6;
 					ld.extraDoorChance = 0.5f;
@@ -455,7 +444,6 @@ namespace BBTimes
 					ld.minSpecialRooms = 1;
 					ld.maxSpecialRooms = 2;
 					ld.deadEndBuffer = 3;
-					//sco.additionalNPCs += 4;
 					ld.additionTurnChance += 25;
 					ld.bridgeTurnChance += 6;
 					ld.outerEdgeBuffer += 3;
@@ -493,10 +481,7 @@ namespace BBTimes
 
 				var floordata = BBTimesManager.floorDatas.FirstOrDefault(x => x.Floor == floorName);
 				if (floordata == null)
-				{
-					//Debug.LogWarning("Failed to get floor data for level: " + ld.name);
 					return;
-				}
 
 				bool isChristmas = BooleanStorage.IsChristmas;
 
@@ -526,8 +511,7 @@ namespace BBTimes
 					}
 				}
 
-				//List<WeightedItemObject> acceptableItems = floordata.Items;
-				for (int i = 0; i < floordata.Items.Count; i++)
+					for (int i = 0; i < floordata.Items.Count; i++)
 				{
 					string itemName = floordata.Items[i].selection.itemType == Items.Points ? floordata.Items[i].selection.nameKey : EnumExtensions.GetExtendedName<Items>((int)floordata.Items[i].selection.itemType);
 					if (!Config.Bind("Item Settings", $"Enable {itemName}",
@@ -545,7 +529,6 @@ namespace BBTimes
 
 				ld.potentialItems = ld.potentialItems.AddRangeToArray([.. floordata.Items]);
 
-				//List<ItemObject> items = floordata.ForcedItems;
 				for (int i = 0; i < floordata.ForcedItems.Count; i++)
 				{
 					string itemName = floordata.ForcedItems[i].itemType == Items.Points ? floordata.ForcedItems[i].nameKey : EnumExtensions.GetExtendedName<Items>((int)floordata.ForcedItems[i].itemType);
@@ -559,7 +542,6 @@ namespace BBTimes
 				}
 				ld.forcedItems.AddRange(floordata.ForcedItems);
 
-				//acceptableItems = new(floordata.ShopItems);
 				for (int i = 0; i < floordata.ShopItems.Count; i++)
 				{
 					string itemName = floordata.ShopItems[i].selection.itemType == Items.Points ? floordata.ShopItems[i].selection.nameKey : EnumExtensions.GetExtendedName<Items>((int)floordata.ShopItems[i].selection.itemType);
@@ -574,7 +556,6 @@ namespace BBTimes
 
 				sco.shopItems = sco.shopItems.AddRangeToArray([.. floordata.ShopItems]);
 
-				//List<WeightedRandomEvent> events = new(floordata.Events);
 				for (int i = 0; i < floordata.Events.Count; i++)
 				{
 					if (!Config.Bind("Random Event Settings", $"Enable {floordata.Events[i].selection.name}", true, "If set to true, this random event will be included in the maps made by the Level Generator (eg. Hide and Seek).").Value)
@@ -590,7 +571,6 @@ namespace BBTimes
 
 				ld.randomEvents.AddRange(floordata.Events);
 
-				//List<ObjectBuilder> objBlds = new(floordata.ForcedObjectBuilders);
 				for (int i = 0; i < floordata.ForcedObjectBuilders.Count; i++)
 				{
 					if (!Config.Bind("Structure Settings", $"Enable {floordata.ForcedObjectBuilders[i].prefab.name}", true,
@@ -603,7 +583,6 @@ namespace BBTimes
 
 				ld.forcedStructures = ld.forcedStructures.AddRangeToArray([.. floordata.ForcedObjectBuilders]);
 
-				//List<WeightedObjectBuilder> rngObjBlds = new(floordata.WeightedObjectBuilders);
 				for (int i = 0; i < floordata.WeightedObjectBuilders.Count; i++)
 				{
 					if (!Config.Bind("Structure Settings", $"Enable {floordata.WeightedObjectBuilders[i].selection.prefab.name}", true,
@@ -673,13 +652,9 @@ namespace BBTimes
 							}
 							break;
 						default:
-							string name = EnumExtensions.GetExtendedName<RoomCategory>((int)holder.SelectionLimiters[0]);
 							var group = ld.roomGroup.FirstOrDefault(x => x.potentialRooms.Any(z => z.selection.category == holder.SelectionLimiters[0]));
 							if (group == null)
-							{
-								//Debug.LogWarning("BBTimes: Failed to load texture for room category: " + name);
 								break;
-							}
 							switch (holder.TextureType)
 							{
 								case Misc.SchoolTexture.Ceiling:

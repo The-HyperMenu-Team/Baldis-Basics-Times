@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomComponents;
+using BBTimes.CustomComponents;
 using MTM101BaldAPI.Components;
 using MTM101BaldAPI.PlusExtensions;
 using PixelInternalAPI.Extensions;
@@ -14,7 +14,8 @@ namespace BBTimes.CustomContent.CustomItems
 			audEat = GenericExtensions.FindResourceObject<ITM_ZestyBar>().audEat;
 		public void SetupPrefabPost() { }
 
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("items", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("items", "Textures");
 		public string SoundPath => this.GenerateDataPath("items", "Audios");
 		public ItemObject ItmObj { get; set; }
 

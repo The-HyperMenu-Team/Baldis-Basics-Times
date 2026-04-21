@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomComponents;
+using BBTimes.CustomComponents;
 using BBTimes.Extensions;
 using BBTimes.Extensions.ObjectCreationExtensions;
 using MTM101BaldAPI.Registers;
@@ -57,7 +57,10 @@ namespace BBTimes.CustomContent.NPCs
 		public string TexturePath => this.GenerateDataPath("npcs", "Textures");
 		public string SoundPath => this.GenerateDataPath("npcs", "Audios");
 		public NPC Npc { get; set; }
-		[SerializeField] Character[] replacementNPCs; public Character[] GetReplacementNPCs() => replacementNPCs; public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
+		[SerializeField]
+		Character[] replacementNPCs;
+		public Character[] GetReplacementNPCs() => replacementNPCs;
+		public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
 		public int ReplacementWeight { get; set; }
 		// --------------------------------------------------
 

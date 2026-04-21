@@ -97,32 +97,6 @@ namespace BBTimes.Manager
 
 		static void SetAssets()
 		{
-			//AverageCheck(RoomCategory.Class);
-			//AverageCheck(RoomCategory.Faculty);
-			//AverageCheck(RoomCategory.Office);
-
-			//static void AverageCheck(RoomCategory cat)
-			//{
-			//	Debug.LogWarning($"------------- GETTING AVERAGE OF EVERY ROOM ASSET OF CATEGORY \"{cat}\" -------------");
-			//	float magTotal = 0f;
-			//	int total = 0;
-			//	IntVector2 sizeAxis = new();
-
-			//	foreach (var room in GenericExtensions.FindResourceObjects<RoomAsset>())
-			//	{
-			//		if (room.category != cat)
-			//			continue;
-
-			//		var foundSize = room.GetRoomSize();
-
-			//		magTotal += foundSize.Magnitude();
-			//		sizeAxis += foundSize;
-			//		total++;
-			//	}
-
-			//	Debug.Log("Average magnitude size: " + (magTotal / total) + $" | Average size for ({sizeAxis.x / total},{sizeAxis.z / total})");
-			//}
-
 			try
 			{
 				CompatibilityInitializer.InitializeOnLoadMods();
