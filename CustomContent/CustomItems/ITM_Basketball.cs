@@ -1,4 +1,4 @@
-﻿using BBTimes.Extensions;
+using BBTimes.Extensions;
 using BBTimes.CustomComponents;
 using BBTimes.Manager;
 using PixelInternalAPI.Classes;
@@ -35,7 +35,8 @@ namespace BBTimes.CustomContent.CustomItems
 
 		public void SetupPrefabPost() { }
 
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("items", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("items", "Textures");
 		public string SoundPath => this.GenerateDataPath("items", "Audios");
 		public ItemObject ItmObj { get; set; }
 

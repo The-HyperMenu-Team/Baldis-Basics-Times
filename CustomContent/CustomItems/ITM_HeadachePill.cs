@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomComponents;
+using BBTimes.CustomComponents;
 using BBTimes.CustomComponents.NpcSpecificComponents;
 using BBTimes.CustomContent.NPCs;
 using BBTimes.Extensions;
@@ -13,7 +13,8 @@ namespace BBTimes.CustomContent.CustomItems
 		
 		public void SetupPrefabPost() { }
 
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("items", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("items", "Textures");
 		public string SoundPath => this.GenerateDataPath("items", "Audios");
 		public ItemObject ItmObj { get; set; }
 		public override bool Use(PlayerManager pm)

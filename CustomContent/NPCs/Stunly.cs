@@ -1,4 +1,4 @@
-﻿using BBTimes.Extensions;
+using BBTimes.Extensions;
 using BBTimes.CustomComponents;
 using MTM101BaldAPI.Components;
 using PixelInternalAPI.Components;
@@ -37,10 +37,14 @@ namespace BBTimes.CustomContent.NPCs
 			stars = billboard.gameObject.AddComponent<StarObject>();
 		}
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("npcs", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("npcs", "Textures");
 		public string SoundPath => this.GenerateDataPath("npcs", "Audios");
 		public NPC Npc { get; set; }
-		[SerializeField] Character[] replacementNPCs; public Character[] GetReplacementNPCs() => replacementNPCs; public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
+		[SerializeField]
+		Character[] replacementNPCs;
+		public Character[] GetReplacementNPCs() => replacementNPCs;
+		public void SetReplacementNPCs(params Character[] chars) => replacementNPCs = chars;
 		public int ReplacementWeight { get; set; }
 		// --------------------------------------------------
 

@@ -1,4 +1,4 @@
-﻿using BBTimes.Extensions;
+using BBTimes.Extensions;
 using BBTimes.CustomComponents;
 using BBTimes.CustomComponents.EventSpecificComponents;
 using BBTimes.Extensions.ObjectCreationExtensions;
@@ -62,7 +62,8 @@ namespace BBTimes.CustomContent.Events
 			}
 		}
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 

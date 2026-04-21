@@ -1,4 +1,4 @@
-﻿using BBTimes.Extensions;
+using BBTimes.Extensions;
 using BBTimes.CustomComponents;
 using System.Collections;
 using UnityEngine;
@@ -26,7 +26,8 @@ namespace BBTimes.CustomContent.Events
 		}
 
 		public void SetupPrefabPost() { }
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("events", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("events", "Textures");
 		public string SoundPath => this.GenerateDataPath("events", "Audios");
 		// ---------------------------------------------------
 

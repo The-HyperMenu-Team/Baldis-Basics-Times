@@ -1,4 +1,4 @@
-﻿using BBTimes.CustomContent.Objects;
+using BBTimes.CustomContent.Objects;
 using BBTimes.Extensions;
 using PixelInternalAPI.Extensions;
 using BBTimes.ModPatches.EnvironmentPatches;
@@ -131,7 +131,8 @@ namespace BBTimes.CustomContent.Builders
 
 		const float connectionSize = 2f;
 
-		public string Name { get; set; } public string TexturePath => this.GenerateDataPath("objects", "Textures");
+		public string Name { get; set; }
+		public string TexturePath => this.GenerateDataPath("objects", "Textures");
 		public string SoundPath => this.GenerateDataPath("objects", "Audios");
 
 
